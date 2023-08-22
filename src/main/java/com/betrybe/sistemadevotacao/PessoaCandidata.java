@@ -4,7 +4,7 @@ package com.betrybe.sistemadevotacao;
  * Classe da pessoa candidata.
  */
 
-public abstract class PessoaCandidata extends Pessoa {
+public class PessoaCandidata extends Pessoa {
 
   /**
    * Atributos e métodos.
@@ -13,10 +13,19 @@ public abstract class PessoaCandidata extends Pessoa {
   private int votos;
 
   public PessoaCandidata(String nome, int numero) {
-    super(nome);
+    super.nome = nome;
     this.numero = numero;
     this.votos = 0;
   }
+
+  public String getNome() {
+    return super.getNome();
+  }
+
+  public void setNome(String nome) {
+    super.setNome(nome);
+  }
+
   public int getNumero() {
     return numero;
   }
@@ -34,6 +43,6 @@ public abstract class PessoaCandidata extends Pessoa {
   }
 
   public void receberVoto() {
-    this.votos++;
+    this.votos += 1;
   }
 }

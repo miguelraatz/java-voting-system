@@ -1,11 +1,19 @@
 package com.betrybe.sistemadevotacao;
 
-public abstract class PessoaEleitora extends Pessoa{
+public class PessoaEleitora extends Pessoa{
   private String cpf;
 
   public PessoaEleitora(String nome, String cpf) {
-    super(nome);
+    super.nome = nome;
     this.cpf = cpf;
+  }
+
+  public String getNome() {
+    return super.getNome();
+  }
+
+  public void setNome(String nome) {
+    super.setNome(nome);
   }
 
   public String getCpf() {

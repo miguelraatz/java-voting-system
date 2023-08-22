@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface{
 
-  private ArrayList<String> pessoasCandidatas;
+  private ArrayList<PessoaCandidata> pessoasCandidatas;
   private ArrayList<PessoaEleitora> pessoasEleitoras;
   private ArrayList<String> cpfsComputados;
 
   public GerenciamentoVotacao() {
     this.pessoasCandidatas = new ArrayList<>();
     this.pessoasEleitoras = new ArrayList<>();
-    this.cpfsComputados = new ArrayList<String>();
+    this.cpfsComputados = new ArrayList<>();
   }
 
   @Override
   public void cadastrarPessoaCandidata(String nome, int numero) {
-    pessoasCandidatas.add(nome);
+
   }
 
   @Override
