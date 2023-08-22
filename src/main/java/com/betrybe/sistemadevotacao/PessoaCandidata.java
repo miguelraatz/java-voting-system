@@ -7,16 +7,24 @@ package com.betrybe.sistemadevotacao;
 public class PessoaCandidata extends Pessoa {
 
   /**
-   * Atributos e métodos.
+   * Atributos.
    */
   private int numero;
   private int votos;
+
+  /**
+   * Constructor.
+   */
 
   public PessoaCandidata(String nome, int numero) {
     super.nome = nome;
     this.numero = numero;
     this.votos = 0;
   }
+
+  /**
+   * Métodos.
+   */
 
   public String getNome() {
     return super.getNome();
