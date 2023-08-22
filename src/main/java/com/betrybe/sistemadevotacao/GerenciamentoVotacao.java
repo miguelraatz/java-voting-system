@@ -12,10 +12,6 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
   private ArrayList<PessoaEleitora> pessoasEleitoras;
   private ArrayList<String> cpfsComputados;
 
-  /**
-   * Constructor.
-   */
-
   public GerenciamentoVotacao() {
     this.pessoasCandidatas = new ArrayList<>();
     this.pessoasEleitoras = new ArrayList<>();
@@ -25,29 +21,46 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
   /**
    * Métodos.
    */
+
   @Override
   public void cadastrarPessoaCandidata(String nome, int numero) {
-    if (this.pessoasCandidatas.contains(numero)) {
-      System.out.println("Número da pessoa candidata já utilizado!");
-    } else {
-      PessoaCandidata pessoaCandidata = new PessoaCandidata(nome, numero);
-      this.pessoasCandidatas.add(pessoaCandidata);
+    for (PessoaCandidata pessoa : this.pessoasCandidatas) {
+      if (pessoa.getNumero() == numero) {
+        System.out.println("Número da pessoa candidata já utilizado!");
+        break;
+      }
     }
+    PessoaCandidata pessoaCandidata = new PessoaCandidata(nome, numero);
+    this.pessoasCandidatas.add(pessoaCandidata);
   }
 
   @Override
   public void cadastrarPessoaEleitora(String nome, String cpf) {
-    if (this.pessoasEleitoras.contains(cpf)) {
-      System.out.println("Pessoa eleitora já cadastrada!");
-    } else {
-      PessoaEleitora pessoaEleitora = new PessoaEleitora(nome, cpf);
-      this.pessoasEleitoras.add(pessoaEleitora);
+    for (PessoaEleitora pessoa : this.pessoasEleitoras) {
+      if (pessoa.getCpf().equals(cpf)) {
+        System.out.println("Pessoa eleitora já cadastrada!");
+        break;
+      }
     }
+    PessoaEleitora pessoaEleitora = new PessoaEleitora(nome, cpf);
+    this.pessoasEleitoras.add(pessoaEleitora);
   }
 
   @Override
   public void votar(String cpfPessoaEleitora, int numeroPessoaCandidata) {
-
+    for (PessoaEleitora pessoa : this.pessoasEleitoras) {
+      if (cpfsComputados.contains(cpfPessoaEleitora)) {
+        System.out.println("Pessoa eleitora já votou!");
+        break;
+      }
+    }
+    for (PessoaCandidata pessoa : this.pessoasCandidatas) {
+      if (pessoa.getNumero() == numeroPessoaCandidata) {
+        pessoa.setVotos(pessoa.getVotos() + 1);
+        this.cpfsComputados.add(cpfPessoaEleitora);
+        break;
+      }
+    }
   }
 
   @Override
