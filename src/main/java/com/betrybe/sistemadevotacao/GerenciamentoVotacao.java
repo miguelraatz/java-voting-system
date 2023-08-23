@@ -31,7 +31,7 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
     for (PessoaCandidata pessoa : this.pessoasCandidatas) {
       if (pessoa.getNumero() == numero) {
         System.out.println("Número da pessoa candidata já utilizado!");
-        break;
+        return;
       }
     }
     PessoaCandidata pessoaCandidata = new PessoaCandidata(nome, numero);
@@ -43,7 +43,7 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
     for (PessoaEleitora pessoa : this.pessoasEleitoras) {
       if (pessoa.getCpf().equals(cpf)) {
         System.out.println("Pessoa eleitora já cadastrada!");
-        break;
+        return;
       }
     }
     PessoaEleitora pessoaEleitora = new PessoaEleitora(nome, cpf);
@@ -55,14 +55,14 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
     for (PessoaEleitora pessoa : this.pessoasEleitoras) {
       if (cpfsComputados.contains(cpfPessoaEleitora)) {
         System.out.println("Pessoa eleitora já votou!");
-        break;
+        return;
       }
     }
     for (PessoaCandidata pessoa : this.pessoasCandidatas) {
       if (pessoa.getNumero() == numeroPessoaCandidata) {
         pessoa.receberVoto();
         this.cpfsComputados.add(cpfPessoaEleitora);
-        break;
+        return;
       }
     }
   }
