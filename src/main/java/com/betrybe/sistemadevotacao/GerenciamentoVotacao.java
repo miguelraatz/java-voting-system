@@ -12,6 +12,10 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
   private ArrayList<PessoaEleitora> pessoasEleitoras;
   private ArrayList<String> cpfsComputados;
 
+  /**
+   * Constructor.
+   */
+
   public GerenciamentoVotacao() {
     this.pessoasCandidatas = new ArrayList<>();
     this.pessoasEleitoras = new ArrayList<>();
@@ -56,7 +60,7 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
     }
     for (PessoaCandidata pessoa : this.pessoasCandidatas) {
       if (pessoa.getNumero() == numeroPessoaCandidata) {
-        pessoa.setVotos(pessoa.getVotos() + 1);
+        pessoa.receberVoto();
         this.cpfsComputados.add(cpfPessoaEleitora);
         break;
       }
@@ -65,6 +69,14 @@ public class GerenciamentoVotacao implements GerenciamentoVotacaoInterface {
 
   @Override
   public void mostrarResultado() {
-
+    if (this.cpfsComputados.isEmpty()) {
+      System.out.println("É preciso ter pelo menos um voto para mostrar o resultado.");
+      return;
+    }
+    for (PessoaCandidata pessoa : this.pessoasCandidatas) {
+      System.out.println("Nome: " + pessoa.getNome() + " - " + pessoa.getVotos() + " votos ( "
+          + (pessoa.getVotos() * 100) / this.cpfsComputados.size() + "% )");
+    }
+    System.out.println("Total de votos: " + this.cpfsComputados.size());
   }
 }
