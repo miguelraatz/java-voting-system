@@ -1,10 +1,2 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Projeto introdutório ao Java, fortalecendo minha lógica de programação, explorei a linguagem e suas coleções. O projeto envolveu a criação de um sistema de gerenciamento de notas e atividades escolares.
+"Sistema de Votação": Um projeto para a pratica de Programação Orientada a Objetos com a linguagem Java. O nome já diz tudo: construí um sistema de votação, com classes para candidatos e eleitores, além do gerenciamento das votações.
